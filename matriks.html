@@ -57,11 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'matriks';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content with notebooks" href="notebooks.html" />
-    <link rel="prev" title="BAYU SURYA WIJAYA - 250411100190" href="intro.html" />
+    <link rel="prev" title="Sistem Persamaan Linear" href="Sistem_persamaan_linier.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,9 +181,10 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Aljabar_linier.html">1.1 APA YANG DIMAKSUD ALJABAR LINIER?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sistem_persamaan_linier.html">Sistem Persamaan Linear</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Matriks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+
 </ul>
 
     </div>
@@ -355,7 +357,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -371,6 +375,22 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear">1. Sistem Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-augmented-awal">2. Matriks Augmented Awal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-eliminasi-gauss">3. Proses Eliminasi Gauss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-reduced-row-echelon-form">4. Hasil Akhir (Reduced Row Echelon Form)</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -382,6 +402,138 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matriks">
 <h1>Matriks<a class="headerlink" href="#matriks" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eliminasi-gauss">
+<h1>Eliminasi Gauss<a class="headerlink" href="#eliminasi-gauss" title="Link to this heading">#</a></h1>
+<section id="sistem-persamaan-linear">
+<h2>1. Sistem Persamaan Linear<a class="headerlink" href="#sistem-persamaan-linear" title="Link to this heading">#</a></h2>
+<p>Diberikan sistem persamaan berikut:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+x_1 + x_2 + x_3 + x_4 + x_5 = 15 \\
+2x_1 + x_2 + x_3 + x_4 + x_5 = 16 \\
+x_1 + 2x_2 + x_3 + x_4 + x_5 = 17 \\
+x_1 + x_2 + 2x_3 + x_4 + x_5 = 18 \\
+x_1 + x_2 + x_3 + 2x_4 + x_5 = 19
+\end{cases}
+\end{split}\]</div>
+</section>
+<section id="matriks-augmented-awal">
+<h2>2. Matriks Augmented Awal<a class="headerlink" href="#matriks-augmented-awal" title="Link to this heading">#</a></h2>
+<p>Bentuk matriks dari sistem persamaan di atas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+2 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 16 \\
+1 &amp; 2 &amp; 1 &amp; 1 &amp; 1 &amp; 17 \\
+1 &amp; 1 &amp; 2 &amp; 1 &amp; 1 &amp; 18 \\
+1 &amp; 1 &amp; 1 &amp; 2 &amp; 1 &amp; 19
+\end{array} \right]
+\end{split}\]</div>
+</section>
+<section id="proses-eliminasi-gauss">
+<h2>3. Proses Eliminasi Gauss<a class="headerlink" href="#proses-eliminasi-gauss" title="Link to this heading">#</a></h2>
+<p><strong>Langkah 1:</strong> <span class="math notranslate nohighlight">\(R_2 - 2R_1, R_3 - R_1, R_4 - R_1, R_5 - R_1\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; -1 &amp; -1 &amp; -1 &amp; -1 &amp; -14 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 4
+\end{array} \right]
+\)</span>$</p>
+<p><strong>Langkah 2:</strong> <span class="math notranslate nohighlight">\(R_2 = -R_2\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 14 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 4
+\end{array} \right]
+\)</span>$</p>
+<p><strong>Langkah 3:</strong> <span class="math notranslate nohighlight">\(R_3 = R_3 - R_2\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 14 \\
+0 &amp; 0 &amp; -1 &amp; -1 &amp; -1 &amp; -12 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 4
+\end{array} \right]
+\)</span>$</p>
+<p><strong>Langkah 4:</strong> <span class="math notranslate nohighlight">\(R_3 = -R_3\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 14 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 12 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 4
+\end{array} \right]
+\)</span>$</p>
+<p><strong>Langkah 5:</strong> <span class="math notranslate nohighlight">\(R_4 = R_4 - R_3\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 14 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; -1 &amp; -1 &amp; -9 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 4
+\end{array} \right]
+\)</span>$</p>
+<p><strong>Langkah 6:</strong> <span class="math notranslate nohighlight">\(R_4 = -R_4\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 14 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 9 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 4
+\end{array} \right]
+\)</span>$</p>
+<p><strong>Langkah 7:</strong> <span class="math notranslate nohighlight">\(R_5 = R_5 - R_4\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 14 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 9 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; -5
+\end{array} \right]
+\)</span>$</p>
+<p><strong>Langkah 8:</strong> <span class="math notranslate nohighlight">\(R_5 = -R_5\)</span>
+$<span class="math notranslate nohighlight">\(
+\left[ \begin{array}{ccccc|c}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 14 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 12 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 9 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
+\end{array} \right]
+\)</span>$</p>
+</section>
+<section id="hasil-akhir-reduced-row-echelon-form">
+<h2>4. Hasil Akhir (Reduced Row Echelon Form)<a class="headerlink" href="#hasil-akhir-reduced-row-echelon-form" title="Link to this heading">#</a></h2>
+<p>Setelah proses substitusi balik (atau Eliminasi Gauss-Jordan secara penuh), didapatkan matriks identitas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[ \begin{array}{ccccc|c}
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 4 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
+\end{array} \right]
+\end{split}\]</div>
+<p><strong>Solusi:</strong>
+$<span class="math notranslate nohighlight">\(
+x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{bmatrix}
+\)</span>$</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -415,22 +567,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="Sistem_persamaan_linier.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">BAYU SURYA WIJAYA - 250411100190</p>
+        <p class="prev-next-title">Sistem Persamaan Linear</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="notebooks.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Content with notebooks</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -438,6 +581,29 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eliminasi-gauss">Eliminasi Gauss</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear">1. Sistem Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-augmented-awal">2. Matriks Augmented Awal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-eliminasi-gauss">3. Proses Eliminasi Gauss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akhir-reduced-row-echelon-form">4. Hasil Akhir (Reduced Row Echelon Form)</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

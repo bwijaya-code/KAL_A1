@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>BAYU SURYA WIJAYA - 250411100190 &#8212; My sample book</title>
+    <title>Sistem Persamaan Linear &#8212; My sample book</title>
   
   
   
@@ -59,10 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sistem_persamaan_linier';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1.1 APA YANG DIMAKSUD ALJABAR LINIER?" href="Aljabar_linier.html" />
+    <link rel="next" title="Matriks" href="matriks.html" />
+    <link rel="prev" title="1.1 APA YANG DIMAKSUD ALJABAR LINIER?" href="Aljabar_linier.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,7 +144,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -176,15 +175,15 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     BAYU SURYA WIJAYA - 250411100190
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Aljabar_linier.html">1.1 APA YANG DIMAKSUD ALJABAR LINIER?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Sistem_persamaan_linier.html">Sistem Persamaan Linear</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sistem Persamaan Linear</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matriks.html">Matriks</a></li>
 
 </ul>
@@ -258,7 +257,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSistem_persamaan_linier.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -288,7 +287,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/Sistem_persamaan_linier.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -359,7 +358,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -370,11 +371,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>BAYU SURYA WIJAYA - 250411100190</h1>
+    <h1>Sistem Persamaan Linear</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-persamaan-linear">1. Definisi Persamaan Linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-persamaan">Klasifikasi Persamaan:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-spl">2. Sistem Persamaan Linear (SPL)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#karakteristik-solusi-spl">Karakteristik Solusi SPL:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-matriks">3. Representasi Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-komputasi-sagemath">4. Implementasi Komputasi (SageMath)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,21 +402,62 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bayu-surya-wijaya-250411100190">
-<h1>BAYU SURYA WIJAYA - 250411100190<a class="headerlink" href="#bayu-surya-wijaya-250411100190" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Aljabar_linier.html">1.1 APA YANG DIMAKSUD ALJABAR LINIER?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Sistem_persamaan_linier.html">Sistem Persamaan Linear</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matriks.html">Matriks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matriks.html#eliminasi-gauss">Eliminasi Gauss</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="sistem-persamaan-linear">
+<h1>Sistem Persamaan Linear<a class="headerlink" href="#sistem-persamaan-linear" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="definisi-persamaan-linear">
+<h2>1. Definisi Persamaan Linear<a class="headerlink" href="#definisi-persamaan-linear" title="Link to this heading">#</a></h2>
+<p>Sebuah <em>persamaan linear</em> dalam <span class="math notranslate nohighlight">\(n\)</span> variabel (<span class="math notranslate nohighlight">\(x_1, x_2, \dots, x_n\)</span>) adalah persamaan yang dapat disederhanakan menjadi bentuk baku:</p>
+<div class="math notranslate nohighlight">
+\[a_1x_1 + a_2x_2 + \dots + a_nx_n = b\]</div>
+<ul class="simple">
+<li><p><em>Variabel:</em> <span class="math notranslate nohighlight">\(x_1, x_2, \dots, x_n\)</span> adalah peubah yang tidak diketahui.</p></li>
+<li><p><em>Koefisien:</em> <span class="math notranslate nohighlight">\(a_1, a_2, \dots, a_n\)</span> adalah bilangan real tetap.</p></li>
+<li><p><em>Konstanta:</em> <span class="math notranslate nohighlight">\(b\)</span> adalah bilangan real di ruas kanan.</p></li>
 </ul>
-</div>
+<section id="klasifikasi-persamaan">
+<h3>Klasifikasi Persamaan:<a class="headerlink" href="#klasifikasi-persamaan" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><em>Homogen:</em> Jika <span class="math notranslate nohighlight">\(b = 0\)</span>.</p></li>
+<li><p><em>Nonhomogen:</em> Jika <span class="math notranslate nohighlight">\(b \neq 0\)</span>.</p></li>
+<li><p><em>Nonlinear:</em> Jika variabel memiliki pangkat selain satu (misal: <span class="math notranslate nohighlight">\(x^2\)</span>), terdapat perkalian antar variabel (misal: <span class="math notranslate nohighlight">\(xy\)</span>), atau variabel berada di dalam fungsi non-polinomial (misal: <span class="math notranslate nohighlight">\(\sin(x)\)</span>).</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sistem-persamaan-linear-spl">
+<h2>2. Sistem Persamaan Linear (SPL)<a class="headerlink" href="#sistem-persamaan-linear-spl" title="Link to this heading">#</a></h2>
+<p>SPL adalah himpunan atau kumpulan dari beberapa persamaan linear. Sebuah sistem disebut <em>homogen</em> jika seluruh persamaan di dalamnya adalah homogen.</p>
+<section id="karakteristik-solusi-spl">
+<h3>Karakteristik Solusi SPL:<a class="headerlink" href="#karakteristik-solusi-spl" title="Link to this heading">#</a></h3>
+<p>Setiap SPL memiliki salah satu dari tiga kemungkinan solusi berikut:</p>
+<ol class="arabic simple">
+<li><p><em>Tidak Konsisten:</em> Tidak memiliki solusi (himpunan kosong).</p></li>
+<li><p><em>Konsisten (Solusi Tunggal):</em> Memiliki tepat satu pasang nilai variabel yang memenuhi.</p></li>
+<li><p><em>Konsisten (Solusi Tak Hingga):</em> Memiliki banyak sekali penyelesaian.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="representasi-matriks">
+<h2>3. Representasi Matriks<a class="headerlink" href="#representasi-matriks" title="Link to this heading">#</a></h2>
+<p>Untuk mempermudah komputasi, SPL sering direpresentasikan dalam bentuk matriks.</p>
+<ul class="simple">
+<li><p><em>Matriks Koefisien (<span class="math notranslate nohighlight">\(A\)</span>):</em> Matriks yang elemennya terdiri dari koefisien-koefisien variabel.</p></li>
+<li><p><em>Vektor Konstanta (<span class="math notranslate nohighlight">\(\mathbf{b}\)</span>):</em> Vektor kolom yang berisi nilai-nilai <span class="math notranslate nohighlight">\(b\)</span> dari tiap persamaan.</p></li>
+<li><p><em>Matriks Augmentasi (<span class="math notranslate nohighlight">\([A | \mathbf{b}]\)</span>):</em> Matriks yang menggabungkan matriks koefisien dan vektor konstanta dalam satu tampilan untuk mempermudah operasi baris.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="implementasi-komputasi-sagemath">
+<h2>4. Implementasi Komputasi (SageMath)<a class="headerlink" href="#implementasi-komputasi-sagemath" title="Link to this heading">#</a></h2>
+<p>Materi ini juga memperkenalkan penggunaan <em>Sage</em> untuk memproses matriks secara otomatis:</p>
+<ul class="simple">
+<li><p><em>Membuat Matriks:</em> A = matrix(QQ, baris, kolom, [[elemen]])</p></li>
+<li><p><em>Augmentasi:</em> M = A.augment(b) digunakan untuk menempelkan vektor konstanta ke matriks koefisien.</p></li>
+<li><p><em>Subdivisi:</em> M.subdivide([baris],[kolom]) digunakan untuk memberikan garis pemisah visual agar matriks lebih mudah dibaca.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -431,12 +490,21 @@ It does not go in-depth into any particular topic - check out <a class="referenc
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
+    <a class="left-prev"
        href="Aljabar_linier.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1.1 APA YANG DIMAKSUD ALJABAR LINIER?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="matriks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1.1 APA YANG DIMAKSUD ALJABAR LINIER?</p>
+        <p class="prev-next-title">Matriks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -446,6 +514,30 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-persamaan-linear">1. Definisi Persamaan Linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-persamaan">Klasifikasi Persamaan:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear-spl">2. Sistem Persamaan Linear (SPL)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#karakteristik-solusi-spl">Karakteristik Solusi SPL:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-matriks">3. Representasi Matriks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-komputasi-sagemath">4. Implementasi Komputasi (SageMath)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
