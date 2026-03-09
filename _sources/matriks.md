@@ -31,6 +31,7 @@ $$
 ### 3. Proses Eliminasi Gauss
 
 **Langkah 1:** $R_2 - 2R_1, R_3 - R_1, R_4 - R_1, R_5 - R_1$
+
 $$
 \left[ \begin{array}{ccccc|c}
 1 & 1 & 1 & 1 & 1 & 15 \\
@@ -42,6 +43,7 @@ $$
 $$
 
 **Langkah 2:** $R_2 = -R_2$
+
 $$
 \left[ \begin{array}{ccccc|c}
 1 & 1 & 1 & 1 & 1 & 15 \\
@@ -53,6 +55,7 @@ $$
 $$
 
 **Langkah 3:** $R_3 = R_3 - R_2$
+
 $$
 \left[ \begin{array}{ccccc|c}
 1 & 1 & 1 & 1 & 1 & 15 \\
@@ -64,6 +67,7 @@ $$
 $$
 
 **Langkah 4:** $R_3 = -R_3$
+
 $$
 \left[ \begin{array}{ccccc|c}
 1 & 1 & 1 & 1 & 1 & 15 \\
@@ -86,6 +90,7 @@ $$
 $$
 
 **Langkah 6:** $R_4 = -R_4$
+
 $$
 \left[ \begin{array}{ccccc|c}
 1 & 1 & 1 & 1 & 1 & 15 \\
@@ -97,6 +102,7 @@ $$
 $$
 
 **Langkah 7:** $R_5 = R_5 - R_4$
+
 $$
 \left[ \begin{array}{ccccc|c}
 1 & 1 & 1 & 1 & 1 & 15 \\
@@ -108,6 +114,7 @@ $$
 $$
 
 **Langkah 8:** $R_5 = -R_5$
+
 $$
 \left[ \begin{array}{ccccc|c}
 1 & 1 & 1 & 1 & 1 & 15 \\
@@ -117,6 +124,188 @@ $$
 0 & 0 & 0 & 0 & 1 & 5
 \end{array} \right]
 $$
+
+## Eliminasi Gauss–Jordan: Dari Segitiga Atas ke Reduced Row Echelon Form
+
+Pivot terakhir berada pada baris ke-5 kolom ke-5.
+
+$$
+R_4 \leftarrow R_4 - R_5
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 & | & 15 \\
+0 & 1 & 1 & 1 & 1 & | & 14 \\
+0 & 0 & 1 & 1 & 1 & | & 12 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 2
+
+$$
+R_3 \leftarrow R_3 - R_5
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 & | & 15 \\
+0 & 1 & 1 & 1 & 1 & | & 14 \\
+0 & 0 & 1 & 1 & 0 & | & 7 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 3
+
+$$
+R_2 \leftarrow R_2 - R_5
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 0 & | & 10 \\
+0 & 1 & 1 & 1 & 0 & | & 9 \\
+0 & 0 & 1 & 1 & 0 & | & 7 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 4
+
+$$
+R_1 \leftarrow R_1 - R_5
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 0 & | & 10 \\
+0 & 1 & 1 & 1 & 0 & | & 9 \\
+0 & 0 & 1 & 1 & 0 & | & 7 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 5: Menghilangkan elemen di atas pivot kolom 4
+
+$$
+R_3 \leftarrow R_3 - R_4
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 0 & | & 10 \\
+0 & 1 & 1 & 1 & 0 & | & 9 \\
+0 & 0 & 1 & 0 & 0 & | & 3 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 6
+
+$$
+R_2 \leftarrow R_2 - R_4
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 0 & | & 10 \\
+0 & 1 & 1 & 0 & 0 & | & 5 \\
+0 & 0 & 1 & 0 & 0 & | & 3 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 7
+
+$$
+R_1 \leftarrow R_1 - R_4
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 0 & 0 & | & 6 \\
+0 & 1 & 1 & 0 & 0 & | & 5 \\
+0 & 0 & 1 & 0 & 0 & | & 3 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 8: Menghilangkan elemen di atas pivot kolom 3
+
+$$
+R_2 \leftarrow R_2 - R_3
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 0 & 0 & | & 6 \\
+0 & 1 & 0 & 0 & 0 & | & 2 \\
+0 & 0 & 1 & 0 & 0 & | & 3 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 9
+
+$$
+R_1 \leftarrow R_1 - R_3
+$$
+
+$$
+\begin{bmatrix}
+1 & 1 & 0 & 0 & 0 & | & 3 \\
+0 & 1 & 0 & 0 & 0 & | & 2 \\
+0 & 0 & 1 & 0 & 0 & | & 3 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
+
+### Langkah 10: Menghilangkan elemen di atas pivot kolom 2
+
+$$
+R_1 \leftarrow R_1 - R_2
+$$
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & | & 1 \\
+0 & 1 & 0 & 0 & 0 & | & 2 \\
+0 & 0 & 1 & 0 & 0 & | & 3 \\
+0 & 0 & 0 & 1 & 0 & | & 4 \\
+0 & 0 & 0 & 0 & 1 & | & 5
+\end{bmatrix}
+$$
+
+---
 
 ### 4. Hasil Akhir (Reduced Row Echelon Form)
 Setelah proses substitusi balik (atau Eliminasi Gauss-Jordan secara penuh), didapatkan matriks identitas:
@@ -132,6 +321,7 @@ $$
 $$
 
 **Solusi:**
+
 $$
 x = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{bmatrix}
 $$
